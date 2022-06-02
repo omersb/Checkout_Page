@@ -12,19 +12,20 @@ window.addEventListener("load", ()=>{
 
 });
 
-//*****capturing method*****//
+//*****Capturing method*****//
 let productsDiv = document.querySelector(".products");
 productsDiv.addEventListener("click", (event)=>{
     if (event.target.className == "minus") {
-        let quantityp = event.target.nextElementSibling;
-        if (quantityp.innerText > 1) {
-            quantityp.innerText--;
-            colculateProductAndCartTotal();
+        let quantityP = event.target.nextElementSibling;
+        if (quantityP.innerText > 1) {
+            quantityP.innerText--;
+            //!parameter == selected productInfoDiv
+            calculateProductAndCartTotal(event.target.parentElement.parentElement);
         }
         else{
             if (confirm("Product will be deleted?")) {
                 event.target.parentElement.parentElement.parentElement.remove();
-                colculateCartTotal();
+                calculateCartTotal();
             }
         }
         // console.log(typeof event.target.nextElementSibling.innerText);
@@ -32,15 +33,39 @@ productsDiv.addEventListener("click", (event)=>{
     }
     else if(event.target.classList.contains("plus")){
         event.target.previousElementSibling.innerText++;
-        colculateProductAndCartTotal();
+        //!parameter == selected productInfoDiv
+        calculateProductAndCartTotal(event.target.parentElement.parentElement);
         // console.log("plus button clicked");
     }
     else if(event.target.classList.contains("remove-product")){
         event.target.parentElement.parentElement.parentElement.remove();
-        colculateCartTotal();
+        calculateCartTotal();
         // console.log("remove button clicked");
     }
     else{
         // console.log("other element clicked");
     }
 });
+
+
+//*****Calculate cart and product totals*****//
+const calculateProductAndCartTotal = (productInfoDiv) =>{
+    //*****Product calculation*****//
+    let price = productInfoDiv.querySelector("strong").innerText;
+    let quantity = productInfoDiv.querySelector("#product-quantity").innerText;
+    let productTotalDiv = productInfoDiv.querySelector(".product-line-price");
+    productTotalDiv.innerText = (price * quantity).toFixed(2);
+
+    //*****Cart calculation*****//
+    calculateCartTotal();
+}
+
+//*****Calculate cart totals*****//
+const calculateCartTotal = () =>{
+
+}
+
+
+
+
+
