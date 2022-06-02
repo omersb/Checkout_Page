@@ -1,18 +1,4 @@
-<p>Clarusway<img align="right"
-  src="https://secure.meetupstatic.com/photos/event/3/1/b/9/600_488352729.jpeg"  width="15px"></p>
-
-# Project-001 : Checkout_Page (JS-01)
-
-## Description
-Project aims to create a real checkout page of e-commerce website.
-
-## Learning Outcomes
-
-At the end of the this project, students will be able to;
-
-- analyze a problem, create e-commerce website page.
-
-- demonstrate their knowledge of algorithmic design principles for dynamic calculation of product's cart.
+# Checkout_Page 
 
    
 ## Problem Statement
