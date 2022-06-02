@@ -19,10 +19,12 @@ productsDiv.addEventListener("click", (event)=>{
         let quantityp = event.target.nextElementSibling;
         if (quantityp.innerText > 1) {
             quantityp.innerText--;
+            colculateProductAndCartTotal();
         }
         else{
             if (confirm("Product will be deleted?")) {
                 event.target.parentElement.parentElement.parentElement.remove();
+                colculateCartTotal();
             }
         }
         // console.log(typeof event.target.nextElementSibling.innerText);
@@ -30,10 +32,12 @@ productsDiv.addEventListener("click", (event)=>{
     }
     else if(event.target.classList.contains("plus")){
         event.target.previousElementSibling.innerText++;
+        colculateProductAndCartTotal();
         // console.log("plus button clicked");
     }
     else if(event.target.classList.contains("remove-product")){
         event.target.parentElement.parentElement.parentElement.remove();
+        colculateCartTotal();
         // console.log("remove button clicked");
     }
     else{
