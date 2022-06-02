@@ -62,6 +62,13 @@ const calculateProductAndCartTotal = (productInfoDiv) =>{
 
 //*****Calculate cart totals*****//
 const calculateCartTotal = () =>{
+    //!nodeList Div
+    let productTotalPriceDivs = document.querySelectorAll(".product-line-price");
+    console.log(productTotalPriceDivs);
+    let subtotal = 0;
+    productTotalPriceDivs.forEach(eachproductTotalDiv => {
+        subtotal += parseFloat(eachproductTotalDiv.innerText)
+    });
 
 }
 
