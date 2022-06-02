@@ -2,4 +2,4 @@
 
 [Click](https://js-checkout-page.netlify.app/)
 
-![Form](checkout_app.gif)
+![Form](./img/checkout_app.gif)
